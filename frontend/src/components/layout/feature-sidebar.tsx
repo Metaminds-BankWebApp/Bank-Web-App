@@ -19,9 +19,12 @@ import {
   Settings,
   ShieldCheck,
   User,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
 import { ModeToggle } from "@/src/components/mode-toggle";
@@ -123,6 +126,7 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
   const pathname = usePathname();
   const router = useRouter();
   const logout = useAuthStore((state) => state.logout);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const currentMeta = featureMeta[feature];
 
@@ -157,31 +161,55 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
       <Link
         key={label + href}
         href={href}
+        title={isCollapsed ? label : undefined}
         className={cn(
-          "relative flex items-center gap-3 rounded-lg px-6 py-3 text-sm font-semibold transition-colors",
+          "relative flex items-center gap-3 rounded-lg py-3 text-sm font-semibold transition-all duration-200",
+          isCollapsed ? "justify-center px-2" : "px-6",
           (isHub ? isHubActive : isActive)
             ? "bg-white/25 text-white before:absolute before:bottom-0 before:left-0 before:top-0 before:w-1 before:rounded-r before:bg-white"
             : "text-white/85 hover:bg-white/12",
         )}
       >
         <Icon size={18} className={cn((isHub ? isHubActive : isActive) ? "text-white" : "text-white/75")} />
-        <span>{label}</span>
+        {!isCollapsed && <span>{label}</span>}
       </Link>
     );
   };
 
   return (
-    <aside className={cn("sticky top-0 flex h-screen w-full flex-col overflow-y-auto text-white md:w-[260px]", currentMeta.colorClass, className)}>
-      <div className="flex items-center justify-between px-6 pb-8 pt-8">
-        <div>
-          <p className="text-2xl font-bold leading-tight tracking-tight text-white">PrimeCore</p>
-          <p className="text-base font-normal text-white/70">{currentMeta.title}</p>
+    <aside 
+      className={cn(
+        "sticky top-0 flex h-screen flex-col overflow-y-auto text-white transition-all duration-300", 
+        isCollapsed ? "w-[80px]" : "w-full md:w-[260px]",
+        currentMeta.colorClass, 
+        className
+      )}
+    >
+      <div className={cn("flex items-center px-6 pb-8 pt-8", isCollapsed ? "flex-col gap-4 px-2" : "justify-between")}>
+        {!isCollapsed && (
+          <div>
+            <p className="text-2xl font-bold leading-tight tracking-tight text-white">PrimeCore</p>
+            <p className="text-base font-normal text-white/70">{currentMeta.title}</p>
+          </div>
+        )}
+        {isCollapsed && (
+             <div className="font-bold text-xl tracking-tight">PC</div>
+        )}
+        
+        <div className="flex flex-col gap-2 items-center">
+             <button 
+               onClick={() => setIsCollapsed(!isCollapsed)}
+               className="rounded-full p-1 hover:bg-white/20 transition-colors"
+             >
+               {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+             </button>
+             {!isCollapsed && <ModeToggle className="text-white hover:bg-white/20 hover:text-white" />}
+             {isCollapsed && <ModeToggle className="text-white hover:bg-white/20 hover:text-white" />}
         </div>
-        <ModeToggle className="text-white hover:bg-white/20 hover:text-white" />
       </div>
 
-      <div className="mb-2 px-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-white/50">Menu</p>
+      <div className={cn("mb-2", isCollapsed ? "text-center" : "px-6")}>
+        <p className="text-xs font-semibold uppercase tracking-wider text-white/50">{isCollapsed ? "---" : "Menu"}</p>
       </div>
       
       <nav className="space-y-1 px-3">
@@ -207,10 +235,14 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
             logout();
             router.replace("/login?force=true");
           }}
-          className="relative flex w-full items-center gap-3 rounded-lg px-6 py-3 text-left text-sm font-semibold text-white/85 transition-colors hover:bg-white/12"
+          title={isCollapsed ? "Log Out" : undefined}
+          className={cn(
+            "relative flex w-full items-center gap-3 rounded-lg py-3 text-left text-sm font-semibold text-white/85 transition-colors hover:bg-white/12",
+            isCollapsed ? "justify-center px-2" : "px-6"
+          )}
         >
           <LogOut size={18} className="text-white/75" />
-          <span>Log Out</span>
+          {!isCollapsed && <span>Log Out</span>}
         </button>
       </div>
     </aside>
