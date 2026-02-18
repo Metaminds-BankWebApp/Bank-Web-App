@@ -162,45 +162,44 @@ export default function Page() {
       </div>
 
       {/* Filter Section */}
-      <div className="rounded-xl bg-white p-6 shadow-md">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left: Loan Type Filters */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">Filter by:</label>
-            <div className="flex flex-wrap gap-2">
-              {loanFilters.map((filter) => (
-                <FilterChip
-                  key={filter}
-                  label={filter}
-                  active={activeLoanFilter === filter}
-                  onClick={() => setActiveLoanFilter(filter)}
-                />
-              ))}
-            </div>
-          </div>
+<div className="rounded-xl bg-white p-4 shadow-md">
+  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
 
-          {/* Right: Date Filter */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">Date Range:</label>
-            <div className="relative">
-              <select
-                value={activeDateFilter}
-                onChange={(e) => setActiveDateFilter(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-800 text-sm appearance-none cursor-pointer hover:border-gray-400 focus:outline-none focus:border-[#0B3B66] focus:ring-1 focus:ring-[#0B3B66]"
-              >
-                {dateFilters.map((date) => (
-                  <option key={date} value={date}>
-                    {date}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute right-3 top-2.5 text-gray-500">
-                📅
-              </div>
-            </div>
-          </div>
-        </div>
+    {/* Left Side: Filter Label + Chips */}
+    <div className="flex flex-wrap items-center gap-3">
+      <span className="text-sm font-medium text-gray-700">Filter by:</span>
+
+      {loanFilters.map((filter) => (
+        <FilterChip
+          key={filter}
+          label={filter}
+          active={activeLoanFilter === filter}
+          onClick={() => setActiveLoanFilter(filter)}
+        />
+      ))}
+    </div>
+
+    {/* Right Side: Date Dropdown */}
+    <div className="relative w-full lg:w-48">
+      <select
+        value={activeDateFilter}
+        onChange={(e) => setActiveDateFilter(e.target.value)}
+        className="w-full px-4 py-2 rounded-full border border-gray-300 bg-gray-50 text-gray-800 text-sm appearance-none cursor-pointer focus:outline-none focus:border-[#0B3B66] focus:ring-1 focus:ring-[#0B3B66]"
+      >
+        {dateFilters.map((date) => (
+          <option key={date} value={date}>
+            {date}
+          </option>
+        ))}
+      </select>
+
+      <div className="pointer-events-none absolute right-3 top-2 text-gray-500 text-sm">
+        📅
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* History Table Section */}
       <div className="rounded-xl bg-white shadow-md overflow-hidden">
