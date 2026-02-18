@@ -10,16 +10,17 @@ import { WhyChooseSection } from "./components/why-choose-section";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-(--primecore-background) text-(--primecore-foreground)">
-      <main>
-           <HeroSection /> 
+    <div className="min-h-screen bg-(--primecore-background) text-(--primecore-foreground) overflow-x-hidden">
+      <main className="space-y-12 lg:space-y-16">
+        <HeroSection />
         <ModulesSection />
         <WhyChooseSection />
         <StepsSection />
         <MetricsSection />
-        <CtaBannerSection /> 
+        <CtaBannerSection />
       </main>
-      <Footer className="mt-4" />
+
+      <Footer className="mt-8" />
     </div>
   );
 }
