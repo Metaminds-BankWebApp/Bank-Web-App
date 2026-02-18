@@ -12,7 +12,11 @@ import TransactHeader from "@/src/components/ui/Transact-Header"
 export default function Page() {
   return (
     
-    <div className="bg-white px-4 py-6 sm:px-6 lg:px-8">
+    <div className=" px-4 py-6 sm:px-6 lg:px-8">
+      <div className="bg-white rounded-lg shadow-sm p-4 absolute max-w-md z-1000 top-30">
+        dilshani
+      </div>
+      <div>
       <TransactHeader title="Transfer" subtitle="Bank transfer" />
       <div className="flex float-right mt-20 mb-8 max-w-6xl mx-auto pr-[7rem]">
         
@@ -94,5 +98,7 @@ export default function Page() {
         </form>
       </Card>
     </div>
+    </div>
   )
 }
+
