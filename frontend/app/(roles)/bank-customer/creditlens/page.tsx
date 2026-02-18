@@ -24,7 +24,9 @@ import {
   PointElement,
   LineElement,
   Title,
-  Filler
+  Filler,
+  ChartEvent,
+  ActiveElement,
 } from "chart.js";
 
 ChartJS.register(
@@ -77,7 +79,7 @@ export default function CreditLensDashboard() {
         label: "Credit Score",
         data: [745, 750, 755, 760, 772, 775, 780],
         borderColor: "#0a234c",
-        backgroundColor: (context: any) => {
+        backgroundColor: (context: { chart: { ctx: CanvasRenderingContext2D } }) => {
           const ctx = context.chart.ctx;
           const gradient = ctx.createLinearGradient(0, 0, 0, 300);
           gradient.addColorStop(0, "rgba(10, 35, 76, 0.2)");
@@ -119,8 +121,8 @@ export default function CreditLensDashboard() {
       <div className="flex flex-col gap-6 p-4 md:p-8 min-h-screen bg-white font-sans text-slate-800">
         
          {/* Header */}
-        <header className="flex flex-col md:flex-row justify-between items-center bg-[#0a234c] text-white p-6 rounded-2xl shadow-lg gap-4">
-          <h1 className="text-2xl font-bold tracking-wide w-full md:w-auto">Credit Risk Overview</h1>
+        <header className="flex flex-col md:flex-row justify-between items-center bg-[#0a234c] text-white p-3 rounded-2xl shadow-lg gap-4">
+          <h1 className="text-xl font-bold tracking-wide w-full md:w-auto">Credit Risk Overview</h1>
           <div className="flex items-center gap-6 w-full md:w-auto justify-end">
             <div className="flex gap-4">
                <button className="relative p-2 hover:bg-white/10 rounded-full transition-colors"><Mail size={20} /><span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-[#0a234c]"></span></button>
