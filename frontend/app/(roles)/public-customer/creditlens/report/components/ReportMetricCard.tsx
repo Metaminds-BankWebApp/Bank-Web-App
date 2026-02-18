@@ -36,17 +36,20 @@ export default function ReportMetricCard({
         </div>
 
         <div className="flex-1">
-          <div className="text-sm font-medium text-slate-600">{title}</div>
+  <div className="text-sm font-medium text-slate-600">{title}</div>
 
-          <div className="mt-2 flex items-end justify-between gap-3">
-            <div className="text-xl font-bold text-slate-900">{value}</div>
-            {subValue ? (
-              <div className="text-xs text-slate-500 text-right leading-tight">
-                {subValue}
-              </div>
-            ) : null}
-          </div>
-        </div>
+  {/* stack value + subValue vertically */}
+  <div className="mt-2 flex flex-col items-start">
+    <div className="text-xl font-bold text-slate-900">{value}</div>
+
+    {subValue ? (
+      <div className="mt-1 text-sm font-normal text-slate-500 leading-tight">
+        {subValue}
+      </div>
+    ) : null}
+  </div>
+</div>
+
       </div>
     </div>
   );

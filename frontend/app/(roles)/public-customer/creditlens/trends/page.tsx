@@ -1,12 +1,15 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import CreditRiskBarChart from "../components/CreditRiskBarChart";
 import TrendSummaryCard from "../components/TrendSummaryCard";
 import { Button } from "@/src/components/ui/button";
 import CreditLensHeader from "@/src/components/ui/Creditlens-header";
 
 export default function TrendsPage() {
+  const router = useRouter();
+
   return (
     <div className="space-y-3 mt-4 ml-4 mr-4 ">
       {/* Page header bar (reuse your existing header component if you already made it) */}
@@ -64,7 +67,10 @@ export default function TrendsPage() {
 
     {/* Right button */}
     <div className="md:shrink-0">
-      <Button className="rounded-xl bg-white px-8 py-6 text-[#0b2447] hover:bg-white/90">
+      <Button 
+        onClick={() => router.push("/public-customer/creditlens/insight")}
+        className="rounded-xl bg-white px-8 py-6 text-[#0b2447] hover:bg-white/90"
+      >
         Learn More
       </Button>
     </div>

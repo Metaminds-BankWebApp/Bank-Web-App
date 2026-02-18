@@ -1,11 +1,14 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import CreditRiskGauge from "./components/CreditRiskGauge";
 import CreditRiskTrendChart from "./components/CreditRiskTrendChart";
 import RiskFactorBars from "./components/RiskFactorBars";
 import CreditLensHeader from "@/src/components/ui/Creditlens-header";
 
 export default function PublicCustomerCreditLensPage() {
+  const router = useRouter();
+
   // Mock data (same values as your design)
   const score = 55;
   const riskLabel = "Medium";
@@ -74,7 +77,10 @@ export default function PublicCustomerCreditLensPage() {
               Credit risk score in this last 6 months
             </h4>
 
-            <button className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white">
+            <button 
+              onClick={() => router.push("/public-customer/creditlens/trends")}
+              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white"
+            >
               Show All
               <span aria-hidden>↗</span>
             </button>
@@ -102,7 +108,10 @@ export default function PublicCustomerCreditLensPage() {
             </div>
 
             <div className="mt-6">
-              <button className="rounded-md bg-white px-4 py-2 font-medium text-[#072033] hover:bg-white/90">
+              <button 
+                onClick={() => router.push("/public-customer/creditlens/insight")}
+                className="rounded-md bg-white px-4 py-2 font-medium text-[#072033] hover:bg-white/90"
+              >
                 Learn More
               </button>
             </div>
