@@ -14,19 +14,19 @@ export default function Page() {
     
     <div className="bg-white px-4 py-6 sm:px-6 lg:px-8">
       <TransactHeader title="Transfer" subtitle="Bank transfer" />
-      <div className="flex items-center justify-between mt-8 mb-8">
-        <div />
+      <div className="flex float-right mt-20 mb-8 max-w-6xl mx-auto pr-[7rem]">
+        
 
         <Link
-          href="#"
+          href="/bank-customer/transact/beneficiary"
           className="text-[#155E63] font-medium hover:underline"
-          aria-label="Add Beneficiary"
+          
         >
           + Add Beneficiary
         </Link>
       </div>
 
-      <Card className="rounded-xl shadow-sm p-8 max-w-6xl mx-auto w-full">
+      <Card className="rounded-xl shadow-sm p-8 max-w-6xl mx-auto w-full mt-[8rem]">
         <form className="space-y-6">
           <div className="space-y-1">
             <Label htmlFor="accountNumber">Account Number</Label>
