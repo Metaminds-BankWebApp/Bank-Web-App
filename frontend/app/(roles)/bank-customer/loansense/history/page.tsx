@@ -130,9 +130,9 @@ export default function Page() {
       {/* Header */}
       <div className="rounded-xl bg-[#0B3B66] text-white p-6 shadow-md">
         <h1 className="text-2xl font-semibold">Loan Eligibility History</h1>
-        <p className="text-sm opacity-80 mt-2">Track changes in your loan eligibility over time</p>
+        
       </div>
-
+        <div><p className="text-sm opacity-80 mt-2">Track changes in your loan eligibility over time</p></div>
       {/* Positive Trend Banner */}
       <div className="rounded-xl bg-blue-50 border border-blue-200 p-6 shadow-md flex items-start gap-4">
         <div className="text-blue-600 text-3xl flex-shrink-0">
