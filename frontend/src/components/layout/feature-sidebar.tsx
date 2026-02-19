@@ -132,7 +132,7 @@ const getFeatureLinks = (feature: FeatureKey, role: FeatureRole): SidebarSection
           { title: "Personal Loan", href: `${base}/personal`, icon: Banknote },
           { title: "Vehicle Loan", href: `${base}/vehicle`, icon: Car },
           { title: "Educational Loan", href: `${base}/education`, icon: GraduationCap },
-          { title: "Housing Loan", href: `${base}/policy`, icon: Home }, // Using existing route logic if possible, or new
+          { title: "Housing Loan", href: `${base}/housing`, icon: Home }, // Using existing route logic if possible, or new
           { title: "Loan Eligibility History", href: `${base}/history`, icon: History },
           { title: "Profile", href: `${base}/profile`, icon: User },
         ]
