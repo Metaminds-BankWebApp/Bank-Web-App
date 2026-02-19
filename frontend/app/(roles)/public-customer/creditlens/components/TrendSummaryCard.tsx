@@ -7,10 +7,10 @@ import { BarChart3, ShieldCheck, Target, TrendingUp } from "lucide-react";
 
 export default function TrendSummaryCard() {
   return (
-    <Card className="self-start rounded-[26px] border border-slate-200/70 bg-white/90 shadow-[0_18px_50px_-35px_rgba(2,44,67,0.35)]">
-      <CardContent className="p-5">
+    <Card className="min-w-0 self-start rounded-2xl border border-slate-200/70 bg-white/90 shadow-[0_18px_50px_-35px_rgba(2,44,67,0.35)] md:rounded-[26px]">
+      <CardContent className="p-4 sm:p-5">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="text-base font-semibold text-slate-900">Trend Summary</h3>
           <Badge className="rounded-full bg-emerald-100 px-3 py-1 text-xs text-emerald-800 hover:bg-emerald-100">
             Moderate Risk
@@ -19,8 +19,8 @@ export default function TrendSummaryCard() {
 
         {/* Score box (smaller) */}
         <div className="mt-4 rounded-2xl bg-slate-50 p-4">
-          <div className="text-3xl font-extrabold tracking-tight text-emerald-600">
-            -25 <span className="text-xl font-bold">Risk pts</span>
+          <div className="text-2xl font-extrabold tracking-tight text-emerald-600 sm:text-3xl">
+            -25 <span className="text-lg font-bold sm:text-xl">Risk pts</span>
           </div>
           <div className="mt-2 flex items-center gap-2 text-xs font-medium text-emerald-700">
             <TrendingUp size={14} />
