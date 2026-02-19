@@ -16,7 +16,7 @@ export default function Page() {
 
       <section className="max-w-6xl mx-auto mt-8">
 
-        <Card className="rounded-xl shadow-sm p-8 w-full border min-h-[600px]">
+        <Card className="rounded-xl shadow-sm p-8 w-full border min-h-[600px] mt-[5rem]">
           <form className="space-y-8">
 
             <div className="space-y-4 p-4">
