@@ -4,8 +4,6 @@ import {
   ArrowRightLeft,
   Banknote,
   Car,
-  Clock,
-  LayoutDashboard,
   FileClock,
   FileText,
   GraduationCap,
@@ -14,18 +12,15 @@ import {
   Home,
   Lightbulb,
   LogOut,
-  PieChart,
   Settings,
   TrendingUp,
   User,
   UserPlus,
   Wallet,
-  Receipt,
   Grid
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
 
@@ -85,7 +80,7 @@ const featureMeta: Record<FeatureKey, FeatureMeta> = {
       PUBLIC_CUSTOMER: "/public-customer",
       BANK_CUSTOMER: "/bank-customer/transact",
     },
-    colorClass: "bg-[#0e4f62]", // Teal
+    colorClass: "bg-[#0B3E5A]", 
   },
 };
 
@@ -261,7 +256,7 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
       </nav>
 
       {/* Footer / Logout */}
-      <div className="mt-auto px-6 pb-8 pt-4">
+      <div className="mt-auto px-6 pb-4 pt-4">
         <button
           type="button"
           onClick={() => {
