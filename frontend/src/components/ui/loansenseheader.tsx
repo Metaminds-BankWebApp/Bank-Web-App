@@ -1,4 +1,4 @@
-import { AuthGuard } from "@/src/components/auth";
+"use client";
 import { 
   ArrowRight, 
   ArrowUpRight, 
@@ -14,17 +14,19 @@ import {
   AlertCircle // For Partially Eligible
 } from "lucide-react";
 
-
 import React from 'react'
 
-function LoansenseHeader() {
-  return (
-     <AuthGuard requiredRole="BANK_CUSTOMER">
-      <div className="flex flex-col gap-6 p-4 md:p-8 min-h-screen bg-white font-sans text-slate-800">
-        
-        {/* Header */}
+
+
+type LoanSenseHeaderProps = {
+  title: string;
+  subtitle?: string;
+};
+
+export default function LoansenseHeader( { title ='Dashboard', subtitle = 'User', rightContent } : ) {
+  return ( 
         <header className="flex flex-col md:flex-row justify-between items-center bg-[#0d3b66] text-white p-6 rounded-2xl shadow-lg gap-4">
-          <h1 className="text-2xl font-bold tracking-wide w-full md:w-auto">Dashboard</h1>
+          <h1 className="text-2xl font-bold tracking-wide w-full md:w-auto">{title}</h1>
           <div className="flex items-center gap-6 w-full md:w-auto justify-end">
             <div className="flex gap-4">
                <button className="relative p-2 hover:bg-white/10 rounded-full transition-colors"><Mail size={20} /><span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border border-[#0d3b66]"></span></button>
@@ -41,9 +43,12 @@ function LoansenseHeader() {
             </div>
           </div>
         </header>
-        </div>
-         </AuthGuard>
+       
   )
 }
 
-export default LoansenseHeader
+
+
+
+
+
