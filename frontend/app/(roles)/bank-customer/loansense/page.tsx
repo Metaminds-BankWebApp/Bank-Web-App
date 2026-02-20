@@ -252,7 +252,7 @@ export default function LoanSenseDashboard() {
             The bank allows only a fixed portion of your income to be used for total debt repayments.
           </p>
           <p className="mt-2 font-medium text-slate-800">
-            Max Allowed EMI = Monthly Income × DBR Policy Limit
+            Max Allowed EMI = Monthly Income × DBR PolicyLimit
           </p>
         </div>
 
