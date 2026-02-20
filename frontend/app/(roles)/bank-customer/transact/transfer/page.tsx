@@ -51,7 +51,7 @@ export default function Page() {
   }
 
   return (
-    <div className="relative">
+    <div className="relative min-h-full">
 
       {/* 🔹 BLUR MAIN PAGE WHEN MODAL OPEN */}
       <div className={showOtp || showSuccess ? "blur-sm pointer-events-none" : ""}>
