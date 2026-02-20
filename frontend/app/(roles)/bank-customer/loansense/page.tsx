@@ -21,10 +21,10 @@ import Link from "next/link";
 
 export default function LoanSenseDashboard() {
   const loans = [
-    { title: "Personal Loan", subtitle: "Flexible personal financing for your needs", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "2,150,000", path: "/(roles)/bank-customer/loansense/personal" },
-    { title: "Vehicle Loan", subtitle: "Finance your dream vehicle", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "3,450,000", path: "/(roles)/bank-customer/loansense/vehicle" },
-    { title: "Education Loan", subtitle: "Invest in your education and future", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "5,900,000", path: "/(roles)/bank-customer/loansense/education" },
-    { title: "Housing Loan", subtitle: "Finance your dream home", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "10,400,000", path: "/(roles)/bank-customer/loansense/housing" },
+    { title: "Personal Loan", subtitle: "Flexible personal financing for your needs", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "2,150,000", path: "/bank-customer/loansense/personal" },
+    { title: "Vehicle Loan", subtitle: "Finance your dream vehicle", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "3,450,000", path: "/bank-customer/loansense/vehicle" },
+    { title: "Education Loan", subtitle: "Invest in your education and future", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "5,900,000", path: "/bank-customer/loansense/education" },
+    { title: "Housing Loan", subtitle: "Finance your dream home", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "10,400,000", path: "/bank-customer/loansense/housing" },
   ];
 
   return (
