@@ -53,21 +53,21 @@ export function LandingFooter() {
   return (
     <footer id="support" className="pb-6">
       <LandingPageShell>
-        <section className="rounded-2xl border border-[#bfd5e6] bg-[#d8e9f5] px-6 py-8 text-[#123356] sm:px-8 sm:py-10">
+        <section className="rounded-2xl border border-[#bfd5e6] bg-[#d8e9f5] px-6 py-8 text-center text-[#123356] sm:px-8 sm:py-10">
           <div className="grid gap-8 lg:grid-cols-[1.2fr_2fr_0.75fr]">
-            <div className="space-y-5">
+            <div className="flex flex-col items-center space-y-5">
               <Link href="/" className="inline-flex">
                 <Image
-                  src="/Primecore%20logo%20dark%20blue.png"
+                  src="/Primecore%20logo%20dark%20blue%202.png"
                   alt="PrimeCore Bank Digital"
-                  width={220}
-                  height={74}
-                  className="h-12 w-auto"
+                  width={420}
+                  height={200}
+                  className="h-15 w-auto sm:h-18 lg:h-20"
                 />
               </Link>
               <p className="max-w-sm text-sm text-[#315677] sm:text-base">Banking for the future.</p>
 
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2">
                 <Link
                   href="/login"
                   className="inline-flex h-10 items-center justify-center rounded-xl border border-[#a7c6dd] bg-white px-5 text-sm font-semibold text-[#123456] transition-colors hover:bg-[#f3f9ff]"
@@ -85,7 +85,7 @@ export function LandingFooter() {
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {footerColumns.map((group) => (
-                <div key={group.title}>
+                <div key={group.title} className="text-center">
                   <h3 className="text-sm font-semibold uppercase tracking-wide text-[#1d4365]">{group.title}</h3>
                   <ul className="mt-3 space-y-2">
                     {group.links.map((link) => (
@@ -100,9 +100,9 @@ export function LandingFooter() {
               ))}
             </div>
 
-            <div>
+            <div className="flex flex-col items-center">
               <h3 className="text-sm font-semibold uppercase tracking-wide text-[#1d4365]">Follow Us On</h3>
-              <div className="mt-3 flex items-center gap-2">
+              <div className="mt-3 flex items-center justify-center gap-2">
                 {socials.map((item) => {
                   const Icon = item.icon;
                   return (

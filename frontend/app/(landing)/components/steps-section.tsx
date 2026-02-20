@@ -21,7 +21,7 @@ const steps = [
 
 export function StepsSection() {
   return (
-    <Section id="how-it-works" className="pt-8 sm:pt-10">
+    <Section id="how-it-works" className="pt-8  sm:pt-10  ">
       <LandingPageShell>
         <section className="rounded-2xl border border-[#16537d] bg-[linear-gradient(125deg,#082f56_0%,#0b3f6b_58%,#1a79bb_100%)] p-6 text-white sm:p-9">
           <div className="mb-6 space-y-3">
@@ -35,7 +35,7 @@ export function StepsSection() {
 
           <div className="grid gap-4 md:grid-cols-3">
             {steps.map((item) => (
-              <article key={item.step} className="rounded-2xl border border-white/15 bg-white/8 p-6 backdrop-blur-sm">
+              <article key={item.step} className="rounded-2xl border border-white/15 bg-white/8 p-6 pb-16 backdrop-blur-sm">
                 <p className="text-6xl font-semibold text-[#9fd8ff]">{item.step}</p>
                 <h3 className="mt-4 text-2xl font-semibold">{item.title}</h3>
                 <p className="mt-3 text-base leading-relaxed text-white/85">{item.text}</p>

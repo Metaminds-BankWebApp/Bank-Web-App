@@ -62,7 +62,7 @@ export function ModulesSection() {
             return (
               <article
                 key={item.title}
-                className={`relative rounded-2xl border px-6 pb-7 pt-14 ${
+                className={`relative rounded-2xl border px-6 pb-28 pt-14 ${
                   item.dark
                     ? "border-[#0f4068] bg-[linear-gradient(145deg,#073158_0%,#0d4a74_100%)] text-white"
                     : "border-[#c9dceb] bg-white text-[#12263d]"

@@ -12,9 +12,16 @@ export function CtaBannerSection() {
 
           <div className="relative z-10 grid items-end gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
             <div className="max-w-xl space-y-4 pb-1 sm:space-y-5">
-              <span className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-2 text-xs font-semibold tracking-wide text-white/90 sm:text-sm">
-                We Are PrimeCore
-              </span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 text-white/90">
+                <Image
+                  src="/primecore%20logo%20only%20white.png"
+                  alt="PrimeCore icon"
+                  width={28}
+                  height={28}
+                  className="h-5 w-5 sm:h-6 sm:w-6"
+                />
+                <span className="text-xs font-semibold tracking-wide sm:text-sm">We Are PrimeCore</span>
+              </div>
               <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">Ready to Understand Your Credit Profile?</h2>
               <p className="text-base leading-relaxed text-white/85">
                 Make informed financial decisions with reliable credit insights and instant eligibility analysis.
@@ -38,7 +45,7 @@ export function CtaBannerSection() {
 
             <div className="relative min-h-[260px] sm:min-h-[300px] lg:min-h-[350px]">
               <Image
-                src="/register.png"
+                src="/cta-banner%20landing%20page%20image%202.png"
                 alt="PrimeCore customer ready to start credit journey"
                 fill
                 className="object-contain object-bottom"
