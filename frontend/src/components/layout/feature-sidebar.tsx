@@ -4,8 +4,6 @@ import {
   ArrowRightLeft,
   Banknote,
   Car,
-  Clock,
-  LayoutDashboard,
   FileClock,
   FileText,
   GraduationCap,
@@ -14,18 +12,15 @@ import {
   Home,
   Lightbulb,
   LogOut,
-  PieChart,
   Settings,
   TrendingUp,
   User,
   UserPlus,
   Wallet,
-  Receipt,
   Grid
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
 
@@ -169,9 +164,10 @@ type FeatureSidebarProps = {
   role: FeatureRole;
   feature: FeatureKey;
   className?: string;
+  onNavigate?: () => void;
 };
 
-export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps) {
+export function FeatureSidebar({ role, feature, className, onNavigate }: FeatureSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const logout = useAuthStore((state) => state.logout);
@@ -202,6 +198,7 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
         <div className="mb-6">
            <Link 
              href={dashboardHrefByRole[role]}
+             onClick={onNavigate}
              className="flex items-center gap-3 px-4 py-2 text-sm font-medium text-white/70 hover:text-white transition-colors hover:bg-white/5 rounded-lg"
            >
              <Grid size={18} />
@@ -227,6 +224,7 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
                       <Link
                         key={tab.title + tab.href}
                         href={tab.href}
+                        onClick={onNavigate}
                         className={cn(
                           "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
                           isActive
@@ -249,11 +247,11 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
               <p className="text-[11px] font-bold uppercase tracking-wider text-white/40">Other</p>
            </div>
            <div className="space-y-1">
-              <Link href="/help" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all">
+              <Link href="/help" onClick={onNavigate} className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all">
                   <HelpCircle size={18} className="text-white/70" />
                   <span>Help & Support</span>
               </Link>
-              <Link href="/settings" className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all">
+              <Link href="/settings" onClick={onNavigate} className="flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all">
                   <Settings size={18} className="text-white/70" />
                   <span>Setting</span>
               </Link>
@@ -267,6 +265,7 @@ export function FeatureSidebar({ role, feature, className }: FeatureSidebarProps
         <button
           type="button"
           onClick={() => {
+            onNavigate?.();
             logout();
             router.replace("/login?force=true");
           }}
