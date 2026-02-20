@@ -17,13 +17,14 @@ import {
 } from "lucide-react";
 import LoanSenseHeader from "@/src/components/ui/loansenseheader";
 import React from 'react';
+import Link from "next/link";
 
 export default function LoanSenseDashboard() {
   const loans = [
-    { title: "Personal Loan", subtitle: "Flexible personal financing for your needs", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "2,150,000" },
-    { title: "Vehicle Loan", subtitle: "Finance your dream vehicle", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "3,450,000" },
-    { title: "Education Loan", subtitle: "Invest in your education and future", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "5,900,000" },
-    { title: "Housing Loan", subtitle: "Finance your dream home", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "10,400,000" },
+    { title: "Personal Loan", subtitle: "Flexible personal financing for your needs", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "2,150,000", path: "/(roles)/bank-customer/loansense/personal" },
+    { title: "Vehicle Loan", subtitle: "Finance your dream vehicle", status: "Eligible", statusColor: "text-emerald-500 bg-emerald-50", amount: "3,450,000", path: "/(roles)/bank-customer/loansense/vehicle" },
+    { title: "Education Loan", subtitle: "Invest in your education and future", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "5,900,000", path: "/(roles)/bank-customer/loansense/education" },
+    { title: "Housing Loan", subtitle: "Finance your dream home", status: "Partially Eligible", statusColor: "text-amber-500 bg-amber-50", amount: "10,400,000", path: "/(roles)/bank-customer/loansense/housing" },
   ];
 
   return (
@@ -99,26 +100,28 @@ export default function LoanSenseDashboard() {
                     <h3 className="text-lg font-bold text-slate-800 mb-4">Loan Categories</h3>
                     
                     {loans.map((loan, idx) => (
-                        <div key={idx} className="bg-white border border-slate-100 rounded-xl p-6 flex flex-col md:flex-row justify-between items-center hover:shadow-md transition-shadow cursor-pointer group">
-                             <div className="w-full md:w-auto mb-4 md:mb-0">
-                                 <h4 className="font-bold text-slate-800 text-lg mb-1 group-hover:text-[#0d3b66] transition-colors">{loan.title}</h4>
-                                 <p className="text-sm text-slate-500 mb-3">{loan.subtitle}</p>
-                                 <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${loan.statusColor}`}>
-                                     {loan.status === "Eligible" ? <CheckCircle2 size={12} /> : <AlertCircle size={12} />}
-                                     {loan.status}
-                                 </span>
-                             </div>
-                             <div className="text-right w-full md:w-auto">
-                                 <p className="text-xs text-slate-400 font-semibold mb-1 uppercase tracking-wide">Max Loan Amount</p>
-                                 <div className="flex items-center justify-end gap-1 text-[#0d3b66]">
-                                    <span className="text-sm font-bold opacity-60">LKR</span>
-                                    <span className="text-xl font-bold">{loan.amount}</span>
-                                 </div>
-                             </div>
-                             <div className="hidden md:flex ml-6 text-slate-300">
-                                 <ArrowRight size={20} />
-                             </div>
-                        </div>
+                        <Link key={idx} href={loan.path} className="block">
+                          <div className="bg-white border border-slate-100 rounded-xl p-6 flex flex-col md:flex-row justify-between items-center hover:shadow-md transition-shadow cursor-pointer group">
+                               <div className="w-full md:w-auto mb-4 md:mb-0">
+                                   <h4 className="font-bold text-slate-800 text-lg mb-1 group-hover:text-[#0d3b66] transition-colors">{loan.title}</h4>
+                                   <p className="text-sm text-slate-500 mb-3">{loan.subtitle}</p>
+                                   <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${loan.statusColor}`}>
+                                       {loan.status === "Eligible" ? <CheckCircle2 size={12} /> : <AlertCircle size={12} />}
+                                       {loan.status}
+                                   </span>
+                               </div>
+                               <div className="text-right w-full md:w-auto">
+                                   <p className="text-xs text-slate-400 font-semibold mb-1 uppercase tracking-wide">Max Loan Amount</p>
+                                   <div className="flex items-center justify-end gap-1 text-[#0d3b66]">
+                                      <span className="text-sm font-bold opacity-60">LKR</span>
+                                      <span className="text-xl font-bold">{loan.amount}</span>
+                                   </div>
+                               </div>
+                               <div className="hidden md:flex ml-6 text-slate-300">
+                                   <ArrowRight size={20} />
+                               </div>
+                          </div>
+                        </Link>
                     ))}
                 </div>
 

@@ -133,7 +133,7 @@ export default function Page() {
     : historyData.filter((row) => row.loanType === activeLoanFilter);
 
   return (
-    <main className="p-6 space-y-6">
+    <main className="flex flex-col gap-6 p-4 md:p-8 min-h-screen bg-white font-sans text-slate-800">
       {/* Header */}
           <LoanSenseHeader title="Loan Eligibility History" />
         <div><p className="text-sm opacity-80 mt-2">Track changes in your loan eligibility over time</p></div>

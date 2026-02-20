@@ -51,7 +51,7 @@ export default function Page() {
 	const progress = Math.min(100, (dbR / policyLimit) * 100);
 
 	return (
-		<main className="p-6 space-y-6">
+		<main className="flex flex-col gap-6 p-4 md:p-8 min-h-screen bg-white font-sans text-slate-800">
 			 {/* Header */}
        <LoanSenseHeader title="Housing Loan" />
 	   <div><p className="text-sm opacity-80 mt-2">Get insights into your housing loan eligibility and affordability</p></div>
