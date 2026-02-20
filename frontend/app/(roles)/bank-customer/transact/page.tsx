@@ -113,7 +113,7 @@ export default function TransactDashboard() {
             <TransactHeader title="Dashboard" subtitle="Dineth dovindu" />
 
         {/* Stats Grid */}
-  <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
            <div className="bg-[#0B3E5A] text-white p-6 rounded-2xl shadow-md h-36 flex flex-col justify-between relative overflow-hidden group">
                <div className="flex justify-between items-start z-10">
                    <span className="text-sm font-medium opacity-90">Current Balance</span>
@@ -160,7 +160,7 @@ export default function TransactDashboard() {
         </div>
 
         {/* Charts Section */}
-  <div className="mt-18 grid grid-cols-1 lg:grid-cols-3 gap-8">
+  <div className="mt-20 grid grid-cols-1 lg:grid-cols-3 gap-8">
            
            {/* Timeline Chart */}
            <div className="lg:col-span-2 bg-white rounded-3xl p-8 border border-slate-100 shadow-sm">

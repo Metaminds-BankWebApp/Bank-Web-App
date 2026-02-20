@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import TransactHeader from "@/src/components/ui/Transact-Header"
 import { Check } from "lucide-react"
+import { useRouter } from "next/navigation"
+
 
 export default function Page() {
   const [showOtp, setShowOtp] = useState(false)
@@ -18,6 +20,8 @@ export default function Page() {
   const [otpValues, setOtpValues] = useState<string[]>(Array(length).fill(""))
   const inputsRef = useRef<Array<HTMLInputElement | null>>([])
   const [seconds, setSeconds] = useState(59)
+  const router = useRouter()
+
 
   // OTP Timer
   useEffect(() => {
@@ -52,7 +56,7 @@ export default function Page() {
       {/* 🔹 BLUR MAIN PAGE WHEN MODAL OPEN */}
       <div className={showOtp || showSuccess ? "blur-sm pointer-events-none" : ""}>
         <div className="px-8 py-6 sm:px-6 lg:px-8">
-          <TransactHeader title="Transfer" subtitle="Dineth Dovindu" />
+          <TransactHeader title="Transfer" subtitle="Dineth dovindu" />
 
           {/* Add Beneficiary Button */}
           <div className="flex justify-end mt-8 mb-8 pr-[7rem]">
@@ -68,7 +72,7 @@ export default function Page() {
           </div>
 
           {/* Transfer Form */}
-          <Card className="rounded-xl shadow-sm p-8 max-w-7xl mx-auto w-full mt-8">
+          <Card className="rounded-xl shadow-sm p-8 max-w-6xl mx-auto w-full mt-8">
             <form className="space-y-9">
               <div className="space-y-2">
                 <Label>Account Number</Label>
@@ -126,7 +130,7 @@ export default function Page() {
 
             <div className="bg-gray-50 border rounded-2xl p-10">
               <p className="text-sm text-muted-foreground mb-8 text-center">
-                Enter the 6-digit OTP sent to your registered number
+                Enter the 6-digit OTP sent to your registered EMAIL
               </p>
 
               <div className="flex justify-center mb-6">
@@ -155,7 +159,7 @@ export default function Page() {
 
                 <Button
                   onClick={handleVerify}
-                  className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-10"
+                  className="bg-[#0B3E5A] hover:bg-[#0B3E5A]/80 text-white rounded-xl px-9 PY-6"
                 >
                   Verify
                 </Button>
@@ -172,8 +176,8 @@ export default function Page() {
           <Card className="bg-white rounded-[40px] shadow-2xl border p-16 max-w-2xl w-full text-center">
 
             <div className="flex justify-center mb-10">
-              <div className="w-36 h-36 rounded-full bg-blue-200/40 flex items-center justify-center">
-                <div className="w-28 h-28 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
+              <div className="w-36 h-36 rounded-full bg-[#0B3E5A]/40 flex items-center justify-center">
+                <div className="w-28 h-28 rounded-full bg-[#0B3E5A] flex items-center justify-center shadow-lg">
                   <Check className="text-white w-14 h-14" />
                 </div>
               </div>
@@ -203,17 +207,19 @@ export default function Page() {
               </div>
             </div>
 
-            <p className="text-gray-500 mb-10">
+            <p className="text-[#399FD8] mb-10">
               Transaction has been done.
             </p>
 
             <Button
-              className="bg-blue-500 hover:bg-blue-600 text-white 
-                         rounded-2xl px-16 py-6 text-lg font-semibold shadow-md"
-              onClick={() => setShowSuccess(false)}
-            >
-              BACK TO DASHBOARD
-            </Button>
+  type="button"
+  className="bg-[#0B3E5A] hover:bg-[#0B3E5A]/80 text-white
+             rounded-2xl px-16 py-6 text-lg font-semibold shadow-md"
+  onClick={() => router.push("/bank-customer/transact")}
+>
+  BACK TO DASHBOARD
+</Button>
+
 
           </Card>
         </div>
