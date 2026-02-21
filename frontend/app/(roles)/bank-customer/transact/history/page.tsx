@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Search, Eye, Trash } from "lucide-react"
+import { Search, Eye, Trash, Filter, Download } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -71,7 +71,7 @@ const mockData = [
 		senderName: 'John Smith',
 		senderAcc: '0987654324',
 		amount: 'LKR 15,500.00',
-		status: 'success',
+		status: 'failed',
 		date: '2026-02-10',
 		reference: 'REF-20260208',
 	},
@@ -104,10 +104,11 @@ const mockData = [
 		senderName: 'John Smith',
 		senderAcc: '0987654324',
 		amount: 'LKR 15,500.00',
-		status: 'success',
+		status: 'failed',
 		date: '2026-02-10',
 		reference: 'REF-20260208',
 	},
+
 	{
 		id: '10',
 		receiverName: 'deny chewan',
@@ -116,6 +117,28 @@ const mockData = [
 		senderAcc: '0987654324',
 		amount: 'LKR 15,500.00',
 		status: 'success',
+		date: '2026-02-10',
+		reference: 'REF-20260208',
+	},
+	{
+		id: '11',
+		receiverName: 'deny chewan',
+		receiverAcc: '1122334454',
+		senderName: 'John Smith',
+		senderAcc: '0987654324',
+		amount: 'LKR 15,500.00',
+		status: 'success',
+		date: '2026-02-10',
+		reference: 'REF-20260208',
+	},
+	{
+		id: '12',
+		receiverName: 'deny chewan',
+		receiverAcc: '1122334454',
+		senderName: 'John Smith',
+		senderAcc: '0987654324',
+		amount: 'LKR 15,500.00',
+		status: 'failed',
 		date: '2026-02-10',
 		reference: 'REF-20260208',
 	},
@@ -143,17 +166,20 @@ export default function Page() {
 					</div>
 
 					<div className="flex items-center space-x-3">
-						<Button variant="outline" size="md" className="!px-4">
+						<Button variant="outline" size="md" className="!px-4 flex items-center">
+							<Filter className="w-4 h-4 mr-2" />
 							Filter
 						</Button>
-						<Button variant="outline" size="md" className="!px-4">
+						<Button variant="outline" size="md" className="!px-4 flex items-center">
+							<Download className="w-4 h-4 mr-2" />
 							Export
 						</Button>
 					</div>
 				</div>
 
 				<div className="overflow-x-auto">
-					<table className="w-full text-sm min-w-[900px]">
+					<div className="overflow-y-auto max-h-[48vh]">
+						<table className="w-full text-sm min-w-[900px]">
 						<thead className="bg-(--primecore-surface-soft)">
 							<tr className="text-left text-xs text-(--primecore-foreground)/80">
 								<th className="px-4 py-3">Receiver’s name</th>
@@ -169,7 +195,7 @@ export default function Page() {
 						</thead>
 
 						<tbody>
-							{mockData.map((row) => (
+							{mockData.slice(0, 9).map((row) => (
 								<tr key={row.id} className="hover:bg-(--primecore-surface)/50 border-b border-(--primecore-border)">
 									<td className="px-4 py-3 align-middle">{row.receiverName}</td>
 									<td className="px-4 py-3 align-middle">{row.receiverAcc}</td>
@@ -206,7 +232,8 @@ export default function Page() {
 						</tbody>
 					</table>
 				</div>
-			</Card>
+			</div>
+		</Card>
 		</div>
 	)
 }
