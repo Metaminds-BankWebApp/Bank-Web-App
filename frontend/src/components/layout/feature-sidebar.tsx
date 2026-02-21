@@ -27,8 +27,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
 
-type FeatureKey = "spendiq" | "creditlens" | "loansense" | "transact";
-type FeatureRole = "PUBLIC_CUSTOMER" | "BANK_CUSTOMER";
+export type FeatureKey = "spendiq" | "creditlens" | "loansense" | "transact";
+export type FeatureRole = "PUBLIC_CUSTOMER" | "BANK_CUSTOMER";
 
 type FeatureMeta = {
   title: string;
@@ -48,7 +48,7 @@ type SidebarSection = {
   items: SubNavItem[];
 };
 
-const featureMeta: Record<FeatureKey, FeatureMeta> = {
+export const featureMeta: Record<FeatureKey, FeatureMeta> = {
   spendiq: {
     title: "PrimeCore",
     subtitle: "SpendIQ",
@@ -304,27 +304,33 @@ export function FeatureSidebar({ role, feature, className, onNavigate }: Feature
            )}
            <div className="space-y-1">
               <Link
-                href="/help"
+                href={`${currentMeta.hrefByRole[role]}/help`}
                 onClick={onNavigate}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all",
+                  "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
+                  pathname.startsWith(`${currentMeta.hrefByRole[role]}/help`)
+                    ? "bg-white/10 text-white shadow-sm backdrop-blur-sm"
+                    : "text-white/70 hover:bg-white/5 hover:text-white",
                   isCollapsed && "justify-center px-2"
                 )}
                 title={isCollapsed ? "Help & Support" : undefined}
               >
-                  <HelpCircle size={18} className="text-white/70" />
+                  <HelpCircle size={18} className={cn(pathname.startsWith(`${currentMeta.hrefByRole[role]}/help`) ? "text-white" : "text-white/70")} />
                   {!isCollapsed && <span>Help & Support</span>}
               </Link>
               <Link
-                href="/settings"
+                href={`${currentMeta.hrefByRole[role]}/settings`}
                 onClick={onNavigate}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium text-white/70 hover:bg-white/5 hover:text-white transition-all",
+                  "flex items-center gap-3 rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200",
+                  pathname.startsWith(`${currentMeta.hrefByRole[role]}/settings`)
+                    ? "bg-white/10 text-white shadow-sm backdrop-blur-sm"
+                    : "text-white/70 hover:bg-white/5 hover:text-white",
                   isCollapsed && "justify-center px-2"
                 )}
                 title={isCollapsed ? "Settings" : undefined}
               >
-                  <Settings size={18} className="text-white/70" />
+                  <Settings size={18} className={cn(pathname.startsWith(`${currentMeta.hrefByRole[role]}/settings`) ? "text-white" : "text-white/70")} />
                   {!isCollapsed && <span>Settings</span>}
               </Link>
            </div>

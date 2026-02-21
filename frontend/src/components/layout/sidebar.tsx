@@ -44,22 +44,25 @@ const iconMap: Record<SidebarItem["icon"], ComponentType<{ size?: number; classN
 type SidebarProps = {
   role: UserRole;
   className?: string;
+  hideCollapse?: boolean;
 };
 
-export function Sidebar({ role, className }: SidebarProps) {
+export function Sidebar({ role, className, hideCollapse }: SidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
   const logout = useAuthStore((state) => state.logout);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
+    if (hideCollapse) return;
     const saved = localStorage.getItem("sidebar-collapsed");
     if (saved) {
       setTimeout(() => setIsCollapsed(JSON.parse(saved)), 0);
     }
-  }, []);
+  }, [hideCollapse]);
 
   const toggleCollapse = () => {
+    if (hideCollapse) return;
     const newState = !isCollapsed;
     setIsCollapsed(newState);
     localStorage.setItem("sidebar-collapsed", JSON.stringify(newState));
@@ -149,14 +152,16 @@ export function Sidebar({ role, className }: SidebarProps) {
 
           {!isCollapsed && (
             <div className="flex items-center gap-2">
-               <ModeToggle className="text-white hover:bg-white/20 hover:text-white" />
-               <button
-                 onClick={toggleCollapse}
-                 className="p-2 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors"
-                 title="Collapse Sidebar"
-               >
-                 <ArrowLeftFromLine size={20} />
-               </button>
+               {/* <ModeToggle className="text-white hover:bg-white/20 hover:text-white" /> */}
+               {!hideCollapse && (
+                 <button
+                   onClick={toggleCollapse}
+                   className="p-2 rounded-lg hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                   title="Collapse Sidebar"
+                 >
+                   <ArrowLeftFromLine size={20} />
+                 </button>
+               )}
             </div>
           )}
 
