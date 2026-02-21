@@ -11,6 +11,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
+import {
+  ReportDownloadModal,
+  type ReportFileType,
+} from "@/src/components/ui/report-download-modal";
 import ReportMetricCard from "./components/ReportMetricCard";
 import CreditSummaryDonut from "./components/CreditSummaryDonut";
 import BehaviorExposureCard from "./components/BehaviorExposureCard";
@@ -39,6 +43,8 @@ type ReportSnapshot = {
 
 export default function ReportPage() {
   const [selectedMonth, setSelectedMonth] = useState<string | undefined>(undefined);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [reportFileType, setReportFileType] = useState<ReportFileType>("pdf");
 
   const snapshots: ReportSnapshot[] = useMemo(
     () => [
@@ -197,8 +203,17 @@ export default function ReportPage() {
     return snapshots.find((s) => s.month === selectedMonth) ?? snapshots[0];
   }, [selectedMonth, snapshots]);
 
+  const reportDateStamp = useMemo(() => {
+    return new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  }, []);
+
+  const reportFileBaseName = useMemo(() => {
+    const monthName = (selectedMonth ?? current.month).toLowerCase();
+    return `creditlens-report-${monthName}-${reportDateStamp}`;
+  }, [current.month, reportDateStamp, selectedMonth]);
+
   const handleDownload = () => {
-    console.log("Download Full Report clicked:", selectedMonth);
+    setIsDownloadModalOpen(true);
   };
 
   return (
@@ -295,6 +310,17 @@ export default function ReportPage() {
           <div className="mt-1">© 2024 PrimeCore CreditLens. All rights reserved.</div>
         </div>
       </div>
+
+      <ReportDownloadModal
+        open={isDownloadModalOpen}
+        onOpenChange={setIsDownloadModalOpen}
+        fileBaseName={reportFileBaseName}
+        fileType={reportFileType}
+        onFileTypeChange={setReportFileType}
+        monthLabel={selectedMonth ?? current.month}
+        score={current.score}
+        riskLabel={current.riskLabel}
+      />
     </div>
   );
 }
