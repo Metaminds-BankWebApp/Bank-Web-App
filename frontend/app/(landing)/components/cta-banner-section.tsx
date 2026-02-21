@@ -5,7 +5,7 @@ import { LandingPageShell } from "./landing-page-shell";
 
 export function CtaBannerSection() {
   return (
-    <Section className="pb-8 pt-8 sm:pt-10">
+    <Section className="pb-8 pt-8 sm:pt-10 min-h-[62svh] lg:min-h-[68svh]">
       <LandingPageShell>
         <section className="relative overflow-hidden rounded-2xl border border-[#16537d] bg-[linear-gradient(125deg,#082f56_0%,#0a3f6b_57%,#1a79bb_100%)] px-6 py-8 text-white sm:px-10 sm:py-10">
           <div className="pointer-events-none absolute -right-10 top-[-20%] h-72 w-72 rounded-full bg-[#6bcfff]/20 blur-[110px]" />
@@ -43,7 +43,7 @@ export function CtaBannerSection() {
               </div>
             </div>
 
-            <div className="relative min-h-[260px] sm:min-h-[300px] lg:min-h-[350px]">
+            <div className="relative min-h-65 sm:min-h-75 lg:min-h-87.5">
               <Image
                 src="/cta-banner%20landing%20page%20image%202.png"
                 alt="PrimeCore customer ready to start credit journey"
