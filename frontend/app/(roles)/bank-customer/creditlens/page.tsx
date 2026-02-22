@@ -25,7 +25,7 @@ export default function BankCustomerCreditLensPage() {
         <CreditLensHeader title="Dashboard" subtitle="" name="John Doe" role="Bank Customer" />
 
         <div className="flex min-h-0 flex-1 flex-col gap-4 lg:gap-5 lg:px-2 xl:px-3">
-          <section className="creditlens-card creditlens-card-hover creditlens-delay-1 relative overflow-hidden rounded-2xl border border-[#2e7eae]/35 bg-[#0b3252] px-4 pb-4 pt-3 text-white shadow-[0_24px_54px_-34px_rgba(2,18,33,0.88)] sm:px-6 sm:pb-8 sm:pt-4 md:rounded-[26px] lg:min-h-[420px] lg:flex-[1.38] lg:pb-0 xl:min-h-[480px]">
+          <section className="creditlens-card creditlens-card-hover creditlens-delay-1 relative overflow-hidden rounded-2xl border border-[#66a8d0]/35 bg-[#14517c] px-4 pb-4 pt-3 text-white shadow-[0_24px_44px_-30px_rgba(2,18,33,0.82)] sm:px-6 sm:pb-8 sm:pt-4 md:rounded-[26px] lg:min-h-[420px] lg:flex-[1.38] lg:pb-0 xl:min-h-[480px]">
             <div
               className="pointer-events-none absolute inset-0"
               style={{
@@ -35,7 +35,7 @@ export default function BankCustomerCreditLensPage() {
                 backgroundRepeat: "no-repeat",
               }}
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(8,37,59,0.26)_0%,rgba(8,37,59,0.45)_54%,rgba(8,37,59,0.62)_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(14,56,87,0.18)_0%,rgba(14,56,87,0.28)_56%,rgba(14,56,87,0.4)_100%)]" />
 
             <div className="relative z-10 mt-3 grid min-w-0 gap-6 lg:mt-4 lg:h-full lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-10">
               <div className="flex min-w-0 flex-col items-center justify-start">
@@ -63,7 +63,7 @@ export default function BankCustomerCreditLensPage() {
           </section>
 
           <section className="creditlens-stagger-2 grid min-w-0 gap-4 md:gap-6 lg:min-h-[260px] lg:flex-[0.58] lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] xl:min-h-[290px] ">
-            <div className="creditlens-card creditlens-card-hover flex h-full min-w-0 flex-col rounded-2xl border border-[#2d78ab]/30 bg-[linear-gradient(135deg,#0d3555,#082741)] p-4 text-white shadow-[0_22px_46px_-32px_rgba(3,20,34,0.85)] md:rounded-[26px] sm:p-5">
+            <div className="creditlens-card creditlens-card-hover flex h-full min-w-0 flex-col rounded-2xl border border-[#66a8d0]/35 bg-[#14517c] p-4 text-white shadow-[0_24px_44px_-30px_rgba(2,18,33,0.82)] md:rounded-[26px] sm:p-5">
               <div className="mb-3 flex min-w-0 items-center justify-between gap-3">
                 <h4 className="min-w-0 truncate text-lg font-semibold sm:text-xl">
                   Credit risk score in this last 6 months
@@ -83,7 +83,7 @@ export default function BankCustomerCreditLensPage() {
               </div>
             </div>
 
-            <div className="creditlens-card creditlens-card-hover relative flex h-full min-w-0 overflow-hidden rounded-2xl border border-[#3c8fbe]/35 bg-[#0c3354] p-4 text-white shadow-[0_22px_46px_-30px_rgba(2,18,33,0.85)] md:rounded-[26px] sm:p-5">
+            <div className="creditlens-card creditlens-card-hover relative flex h-full min-w-0 overflow-hidden rounded-2xl border border-[#66a8d0]/35 bg-[#14517c] p-4 text-white shadow-[0_24px_44px_-30px_rgba(2,18,33,0.82)] md:rounded-[26px] sm:p-5">
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
@@ -93,7 +93,7 @@ export default function BankCustomerCreditLensPage() {
                   backgroundRepeat: "no-repeat",
                 }}
               />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(130deg,rgba(9,34,55,0.38)_0%,rgba(9,34,55,0.58)_58%,rgba(9,34,55,0.8)_100%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(14,56,87,0.18)_0%,rgba(14,56,87,0.28)_56%,rgba(14,56,87,0.4)_100%)]" />
 
               <div className="relative flex h-full min-w-0 flex-col justify-between">
                 <div className="min-w-0">
