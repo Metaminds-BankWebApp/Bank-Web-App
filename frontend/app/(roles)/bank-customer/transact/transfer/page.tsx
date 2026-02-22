@@ -72,7 +72,7 @@ export default function Page() {
           <TransactHeader title="Transfer" subtitle="Dineth dovindu" />
 
           {/* Add Beneficiary Button */}
-          <div className="flex justify-end mt-8 mb-8 pr-[7rem] ">
+          <div className="flex justify-end mt-16  pr-[7rem] ">
             <Link
               href="/bank-customer/transact/beneficiary"
               className="inline-flex items-center gap-2 px-5 py-2.5 
@@ -85,7 +85,7 @@ export default function Page() {
           </div>
 
           {/* Transfer Form */}
-          <Card className="rounded-xl shadow-sm p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full mt-4 sm:mt-15">
+          <Card className="rounded-xl shadow-sm p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full mt-4 sm:mt-10">
             <form className="space-y-9">
               <div className="space-y-2">
                 <Label>Account Number</Label>
