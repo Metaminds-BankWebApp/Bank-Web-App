@@ -5,7 +5,7 @@ import { Sidebar } from "@/src/components/layout";
 import { AdminHeader } from "@/src/components/ui/adminheader";
 import { AuthGuard } from "@/src/components/auth";
 import React, { useState, useEffect } from "react";
-
+import { useRouter } from "next/navigation";
 import { Pencil, Trash2, Search, MoreHorizontal } from "lucide-react";
 
 // ==================== TYPES ====================
@@ -182,6 +182,8 @@ const paginatedOfficers = filteredOfficers.slice(
   currentPage * officersPerPage
 );
 
+const router = useRouter();
+
 useEffect(() => {
   setCurrentPage(1);
 }, [searchQuery]);
@@ -229,9 +231,12 @@ useEffect(() => {
     />
   </div>
 
-  <button className="px-6 py-3 bg-[#0B3B66] text-white rounded-lg hover:bg-[#082d4a] transition">
-    + New Officer
-  </button>
+  <button
+  onClick={() => router.push("/admin/bank-officer-management/add")}
+  className="px-6 py-3 bg-[#0B3B66] text-white rounded-lg hover:bg-[#082d4a] transition"
+>
+  + New Officer
+</button>
 
 </div>
 
