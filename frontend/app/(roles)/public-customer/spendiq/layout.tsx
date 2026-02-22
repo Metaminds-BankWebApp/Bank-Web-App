@@ -2,7 +2,7 @@ import { FeatureLayout } from "@/src/components/layout";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <FeatureLayout role="BANK_CUSTOMER" feature="spendiq">
+    <FeatureLayout role="PUBLIC_CUSTOMER" feature="spendiq">
       {children}
     </FeatureLayout>
   );

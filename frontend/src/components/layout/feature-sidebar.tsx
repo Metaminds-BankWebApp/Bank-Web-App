@@ -27,7 +27,6 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
-import { title } from "framer-motion/m";
 
 export type FeatureKey = "spendiq" | "creditlens" | "loansense" | "transact";
 export type FeatureRole = "PUBLIC_CUSTOMER" | "BANK_CUSTOMER";
