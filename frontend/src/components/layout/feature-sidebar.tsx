@@ -27,6 +27,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/src/lib/utils";
 import { useAuthStore } from "@/src/store";
+import { title } from "framer-motion/m";
 
 export type FeatureKey = "spendiq" | "creditlens" | "loansense" | "transact";
 export type FeatureRole = "PUBLIC_CUSTOMER" | "BANK_CUSTOMER";
@@ -72,7 +73,7 @@ export const featureMeta: Record<FeatureKey, FeatureMeta> = {
     title: "PrimeCore",
     subtitle: "LoanSense",
     hrefByRole: {
-      PUBLIC_CUSTOMER: "/public-customer",
+      PUBLIC_CUSTOMER: "/public-customer/loansense",
       BANK_CUSTOMER: "/bank-customer/loansense",
     },
     colorClass: "bg-[#0d3b66]", // Strong Blue
@@ -81,7 +82,7 @@ export const featureMeta: Record<FeatureKey, FeatureMeta> = {
     title: "PrimeCore",
     subtitle: "Transact",
     hrefByRole: {
-      PUBLIC_CUSTOMER: "/public-customer",
+      PUBLIC_CUSTOMER: "/public-customer/transact",
       BANK_CUSTOMER: "/bank-customer/transact",
     },
     colorClass: "bg-[#0B3E5A]", 

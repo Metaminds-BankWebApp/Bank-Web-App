@@ -1,11 +1,12 @@
+"use client";
+
 import { Card, CardContent, CardHeader } from "@/src/components/ui";
 import { SpendIqHeader } from "@/src/components/SpendIqHeader";
 
 export default function PublicCustomerSpendIQPage() {
   return (
-    <>
-
-          <SpendIqHeader title="SpendIQ – Expense Overview" />
+    <div className="p-4 md:p-6 lg:p-8">
+      <SpendIqHeader title="SpendIQ – Expense Overview" />
 
           <section className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <Card><CardHeader><p className="text-sm text-(--primecore-foreground)/70">Total Expenses</p></CardHeader><CardContent><p className="text-4xl font-semibold">$621.75</p><p className="text-sm text-(--primecore-foreground)/65">This month</p></CardContent></Card>
@@ -31,7 +32,7 @@ export default function PublicCustomerSpendIQPage() {
               </CardContent>
             </Card>
           </section>
-    </>
+    </div>
   );
 }
 
