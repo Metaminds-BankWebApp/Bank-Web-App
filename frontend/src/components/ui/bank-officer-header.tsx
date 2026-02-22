@@ -78,7 +78,7 @@ export function BankOfficerHeader({
             className="absolute inset-0 bg-slate-950/55"
           />
           <div className="relative h-full w-72 max-w-[85vw]">
-            <Sidebar role={role} className="h-full w-full md:w-full" />
+            <Sidebar role={role} className="h-full w-full md:w-full" hideCollapse={true} />
             <button
               type="button"
               onClick={() => setIsMenuOpen(false)}
