@@ -21,7 +21,7 @@ export default function BankCustomerCreditLensPage() {
 
   return (
     <div className="w-full overflow-x-hidden px-1 pt-2 sm:px-2 lg:px-6 lg:pt-4 xl:px-8 2xl:px-10">
-      <div className="flex min-h-[calc(100dvh-1.25rem)] flex-col gap-4 sm:gap-5 lg:min-h-[calc(100dvh-2rem)]">
+      <div className="flex min-h-[calc(100dvh-1.25rem)] flex-col gap-4 sm:gap-5 lg:h-[calc(100dvh-2rem)] lg:min-h-0 lg:overflow-hidden">
         <CreditLensHeader title="Dashboard" subtitle="" name="John Doe" role="Bank Customer" />
 
         <div className="flex min-h-0 flex-1 flex-col gap-4 lg:gap-5 lg:px-2 xl:px-3">

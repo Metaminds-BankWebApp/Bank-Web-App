@@ -1,15 +1,82 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import CreditRiskBarChart from "../components/CreditRiskBarChart";
 import TrendSummaryCard from "../components/TrendSummaryCard";
 import { Button } from "@/src/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/src/components/ui/select";
 import CreditLensHeader from "@/src/components/ui/Creditlens-header";
 import trendsDecreaseBg from "../image/creditlens-trends-decrease-bg.svg";
 
+type TrendRange = "6m" | "12m";
+
+type TrendView = {
+  periodLabel: string;
+  labels: string[];
+  values: number[];
+  summary: {
+    riskLabel: string;
+    riskDelta: number;
+    trendText: string;
+    biggestDriver: string;
+    stabilityText: string;
+    nextTarget: string;
+  };
+};
+
+const trendViews: Record<TrendRange, TrendView> = {
+  "6m": {
+    periodLabel: "6 Month Only",
+    labels: ["April", "May", "June", "July", "August", "September"],
+    values: [85, 50, 90, 70, 60, 55],
+    summary: {
+      riskLabel: "Moderate Risk",
+      riskDelta: -25,
+      trendText: "Improved since April",
+      biggestDriver: "Reduced DTI pressure",
+      stabilityText: "No sudden risk spikes",
+      nextTarget: "Below 40 to Low Risk",
+    },
+  },
+  "12m": {
+    periodLabel: "12 Month View",
+    labels: [
+      "Oct",
+      "Nov",
+      "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+    ],
+    values: [92, 88, 84, 80, 74, 69, 80, 50, 90, 70, 60, 55],
+    summary: {
+      riskLabel: "Moderate Risk",
+      riskDelta: -37,
+      trendText: "Improved over last 12 months",
+      biggestDriver: "Lower utilization over time",
+      stabilityText: "Gradual downward risk trend",
+      nextTarget: "Reach below 45 in next quarter",
+    },
+  },
+};
+
 export default function TrendsPage() {
   const router = useRouter();
+  const [trendRange, setTrendRange] = useState<TrendRange>("6m");
+  const activeTrend = trendViews[trendRange];
 
   return (
     <div className="w-full overflow-x-hidden px-1 pt-2 sm:px-2 lg:px-6 lg:pt-4 xl:px-8 2xl:px-10">
@@ -21,27 +88,44 @@ export default function TrendsPage() {
             <div className="creditlens-card creditlens-card-hover flex h-full min-w-0 flex-col rounded-2xl border border-slate-200/70 bg-white/90 px-4 pb-5 pt-4 shadow-[0_40px_80px_-35px_rgba(2,44,67,0.35)] sm:px-5 sm:pb-7 sm:pt-5 md:rounded-[26px]">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="text-base text-slate-500">6 Month Only</div>
+                  <div className="text-base text-slate-500">{activeTrend.periodLabel}</div>
                   <div className="mt-1 truncate text-xl font-semibold text-slate-900 sm:text-2xl">
                     Credit Risk Score
                   </div>
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="h-11 shrink-0 rounded-full border-slate-300 bg-white px-5 text-base sm:px-6"
+                <Select
+                  value={trendRange}
+                  onValueChange={(value) => {
+                    if (value === "6m" || value === "12m") {
+                      setTrendRange(value);
+                    }
+                  }}
                 >
-                  Month
-                </Button>
+                  <SelectTrigger className="h-11 w-[142px] shrink-0 rounded-full border-slate-300 bg-white px-5 text-base sm:px-6">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="6m">6 Months</SelectItem>
+                    <SelectItem value="12m">12 Months</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="mt-4 min-h-0 flex-1">
-                <CreditRiskBarChart />
+                <CreditRiskBarChart labels={activeTrend.labels} values={activeTrend.values} />
               </div>
             </div>
 
             <div className="min-h-0">
-              <TrendSummaryCard />
+              <TrendSummaryCard
+                riskLabel={activeTrend.summary.riskLabel}
+                riskDelta={activeTrend.summary.riskDelta}
+                trendText={activeTrend.summary.trendText}
+                biggestDriver={activeTrend.summary.biggestDriver}
+                stabilityText={activeTrend.summary.stabilityText}
+                nextTarget={activeTrend.summary.nextTarget}
+              />
             </div>
           </div>
 
