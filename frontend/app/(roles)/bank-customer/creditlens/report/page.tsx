@@ -246,7 +246,7 @@ export default function ReportPage() {
           </Button>
         </div>
 
-        <div className="mt-4 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="creditlens-stagger-4 mt-4 grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <ReportMetricCard
             title="Monthly Income"
             value={`LKR ${current.income.toLocaleString()}`}
@@ -277,8 +277,8 @@ export default function ReportPage() {
           />
         </div>
 
-        <div className="mt-6 grid min-w-0 grid-cols-1 gap-4 md:gap-6 lg:grid-cols-[1.05fr_1.05fr_1fr]">
-          <div className="min-w-0 rounded-2xl bg-white/92 p-5 shadow-[0_18px_60px_-45px_rgba(2,44,67,0.45)] sm:p-6 md:rounded-[26px] md:p-7">
+        <div className="creditlens-stagger-3 mt-6 grid min-w-0 grid-cols-1 gap-4 md:gap-6 lg:grid-cols-[1.05fr_1.05fr_1fr]">
+          <div className="creditlens-card creditlens-card-hover min-w-0 rounded-2xl bg-white/92 p-5 shadow-[0_18px_60px_-45px_rgba(2,44,67,0.45)] sm:p-6 md:rounded-[26px] md:p-7">
             <h3 className="text-center text-lg font-semibold text-slate-900 sm:text-xl">Credit Summary</h3>
 
             <div className="mt-6 flex justify-center">

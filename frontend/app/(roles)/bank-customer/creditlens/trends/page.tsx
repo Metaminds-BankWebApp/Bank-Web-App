@@ -13,12 +13,12 @@ export default function TrendsPage() {
 
   return (
     <div className="w-full overflow-x-hidden px-1 pt-2 sm:px-2 lg:px-6 lg:pt-4 xl:px-8 2xl:px-10">
-      <div className="flex min-h-[calc(100dvh-1.25rem)] flex-col gap-4 sm:gap-5 lg:min-h-[calc(100dvh-2rem)]">
+      <div className="flex min-h-[calc(100dvh-1.25rem)] flex-col gap-4 sm:gap-5 lg:h-[calc(100dvh-2rem)] lg:min-h-0 lg:overflow-hidden">
         <CreditLensHeader title="Trends" subtitle="" name="John Doe" role="Bank Customer" />
 
         <div className="flex min-h-0 flex-1 flex-col gap-4 lg:px-2 xl:px-3">
-          <div className="grid min-w-0 items-stretch gap-4 md:gap-6 lg:min-h-0 lg:flex-[1.15] xl:grid-cols-[1.85fr_1fr] xl:gap-7">
-            <div className="flex h-full min-w-0 flex-col rounded-2xl border border-slate-200/70 bg-white/90 px-4 pb-5 pt-4 shadow-[0_40px_80px_-35px_rgba(2,44,67,0.35)] sm:px-5 sm:pb-7 sm:pt-5 md:rounded-[26px]">
+          <div className="creditlens-stagger-2 grid min-w-0 items-stretch gap-4 md:gap-6 lg:min-h-0 lg:flex-[1.15] xl:grid-cols-[1.85fr_1fr] xl:gap-7">
+            <div className="creditlens-card creditlens-card-hover flex h-full min-w-0 flex-col rounded-2xl border border-slate-200/70 bg-white/90 px-4 pb-5 pt-4 shadow-[0_40px_80px_-35px_rgba(2,44,67,0.35)] sm:px-5 sm:pb-7 sm:pt-5 md:rounded-[26px]">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="text-base text-slate-500">6 Month Only</div>
@@ -45,7 +45,7 @@ export default function TrendsPage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-2xl border border-[#66a8d0]/35 bg-[#14517c] p-4 text-white shadow-[0_24px_44px_-30px_rgba(2,18,33,0.82)] sm:p-5 md:rounded-[26px] md:p-6 lg:min-h-[165px]">
+          <div className="creditlens-card creditlens-card-hover creditlens-delay-4 relative overflow-hidden rounded-2xl border border-[#66a8d0]/35 bg-[#14517c] p-4 text-white shadow-[0_24px_44px_-30px_rgba(2,18,33,0.82)] sm:p-5 md:rounded-[26px] md:p-6 lg:min-h-[165px]">
             <div
               className="pointer-events-none absolute inset-0"
               style={{

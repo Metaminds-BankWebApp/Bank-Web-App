@@ -7,7 +7,7 @@ import { BarChart3, ShieldCheck, Target, TrendingUp } from "lucide-react";
 
 export default function TrendSummaryCard() {
   return (
-    <Card className="h-full min-w-0 rounded-2xl border border-slate-200/70 bg-white/90 shadow-[0_18px_50px_-35px_rgba(2,44,67,0.35)] md:rounded-[26px]">
+    <Card className="creditlens-card creditlens-card-hover h-full min-w-0 rounded-2xl border border-slate-200/70 bg-white/90 shadow-[0_18px_50px_-35px_rgba(2,44,67,0.35)] md:rounded-[26px]">
       <CardContent className="flex h-full flex-col p-4 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="text-xl font-semibold text-slate-900 sm:text-2xl">Trend Summary</h3>

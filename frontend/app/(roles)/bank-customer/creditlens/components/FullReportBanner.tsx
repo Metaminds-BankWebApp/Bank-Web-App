@@ -9,7 +9,7 @@ export default function FullReportBanner() {
   const router = useRouter();
 
   return (
-    <div className="relative mt-4 overflow-hidden rounded-2xl border border-[#4f96c6]/35 bg-[#124b74] p-4 text-white shadow-[0_24px_46px_-30px_rgba(2,18,33,0.84)] sm:p-6 md:rounded-[26px] md:p-7">
+    <div className="creditlens-card creditlens-card-hover creditlens-delay-4 relative mt-4 overflow-hidden rounded-2xl border border-[#4f96c6]/35 bg-[#124b74] p-4 text-white shadow-[0_24px_46px_-30px_rgba(2,18,33,0.84)] sm:p-6 md:rounded-[26px] md:p-7">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
