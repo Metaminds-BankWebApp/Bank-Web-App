@@ -16,10 +16,11 @@ export default function CreditAnalysisCustomerPage() {
 
   return (
     <AuthGuard requiredRole="BANK_OFFICER">
-      <div className="flex min-h-screen bg-[#f3f4f6]">
-        <Sidebar role="BANK_OFFICER" className="max-lg:hidden" />
-        <main className="flex-1 p-8 lg:p-10 overflow-y-auto w-full max-w-400 mx-auto">
-          <BankOfficerHeader title="Customer Profile" className="mb-6" />
+      <div className="flex h-screen bg-[linear-gradient(180deg,#0b1a3a_0%,#0a234c_58%,#08142d_100%)] overflow-hidden">
+        <Sidebar role="BANK_OFFICER" className="max-lg:hidden h-full z-10 relative" />
+        <main className="flex-1 flex flex-col bg-[#f3f4f6] p-3 shadow-2xl sm:p-5 lg:p-7 h-full overflow-hidden lg:rounded-l-[28px]">
+          <div className="flex-1 overflow-y-auto min-h-0 w-full max-w-400 mx-auto">
+            <BankOfficerHeader title="Customer Profile" className="mb-6" />
 
           <div className="mb-8 text-sm text-slate-500">
             Dashboard <span className="mx-2 text-slate-400">▶</span> Credit Analysis <span className="mx-2 text-slate-400">▶</span>{" "}
@@ -59,6 +60,7 @@ export default function CreditAnalysisCustomerPage() {
                 <InfoRow icon={<Landmark size={16} />} label="Primary Account" value="Savings • **** 4521" />
               </CardContent>
             </Card>
+          </div>
           </div>
         </main>
       </div>

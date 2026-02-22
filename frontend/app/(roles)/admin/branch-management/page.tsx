@@ -2,6 +2,10 @@
 
 import React, { useState } from 'react';
 
+import { AuthGuard } from "@/src/components/auth";
+import { Sidebar } from "@/src/components/layout";
+import AdminHeader from "@/src/components/ui/adminheader";
+
 // ==================== TYPE DEFINITIONS ====================
 type StatusType = 'Active' | 'Maintenance';
 
@@ -142,12 +146,12 @@ export default function Page() {
   );
 
   return (
-    <main className="p-6 space-y-6">
-      {/* Page Header */}
-      <div className="rounded-xl bg-[#0B3B66] text-white p-6 shadow-md">
-        <h1 className="text-2xl font-semibold">Branch Management</h1>
-        <p className="text-sm opacity-80 mt-1">Manage and monitor all bank branches</p>
-      </div>
+    <AuthGuard requiredRole="ADMIN">
+      <div className="flex h-screen bg-[linear-gradient(180deg,#0b1a3a_0%,#0a234c_58%,#08142d_100%)] overflow-hidden">
+        <Sidebar role="ADMIN" className="max-lg:hidden h-full z-10 relative" />
+        <main className="flex-1 flex flex-col bg-[#f3f4f6] overflow-hidden lg:rounded-l-[28px] shadow-2xl">
+           <div className="flex-1 overflow-y-auto p-8 lg:p-10 space-y-6">
+             <AdminHeader title="Branch Management" />
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -282,6 +286,9 @@ export default function Page() {
           </button>
         </div>
       </div>
-    </main>
+           </div>
+        </main>
+      </div>
+    </AuthGuard>
   );
 }
