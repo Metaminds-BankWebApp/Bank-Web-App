@@ -16,7 +16,7 @@ import { Line } from "react-chartjs-2";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler);
 
 const labels = ["April", "May", "June", "July", "August", "September"];
-const realValues = [80, 50, 92, 70, 60, 55];
+const realValues = [80, 50, 90, 70, 60, 55];
 
 export default function CreditRiskTrendChart() {
   const [chartValues, setChartValues] = useState<number[]>(() => realValues.map(() => 0));

@@ -19,7 +19,7 @@ type Props = {
 };
 
 const defaultLabels = ["April", "May", "June", "July", "August", "September"];
-const defaultValues = [85, 50, 90, 70, 60, 55];
+const defaultValues = [80, 50, 90, 70, 60, 55];
 
 export default function CreditRiskBarChart({ labels = defaultLabels, values = defaultValues }: Props) {
   const PURPLE = "rgba(168,85,247,0.75)";

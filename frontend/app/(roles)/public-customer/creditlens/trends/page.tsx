@@ -35,7 +35,7 @@ const trendViews: Record<TrendRange, TrendView> = {
   "6m": {
     periodLabel: "6 Month Only",
     labels: ["April", "May", "June", "July", "August", "September"],
-    values: [85, 50, 90, 70, 60, 55],
+    values: [80, 50, 90, 70, 60, 55],
     summary: {
       riskLabel: "Moderate Risk",
       riskDelta: -25,
