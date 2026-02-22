@@ -125,17 +125,17 @@ const doughnutOptions: ChartOptions<"doughnut"> = {
 export default function TransactDashboard() {
   return (
     <AuthGuard requiredRole="BANK_CUSTOMER">
-      <div className="bg-white px-8 py-6">
+      <div className="bg-white px-4 sm:px-8 py-4 sm:py-6">
         <TransactHeader title="Dashboard" subtitle="Dineth dovindu" />
 
         <section className=" max-w-full mx-auto mt-8">
 
-          <Card className="rounded-xl shadow-sm p-8 w-full border min-h-[800px]">
+          <Card className="rounded-xl shadow-sm p-6 sm:p-8 w-full border min-h-[600px] md:min-h-[700px] lg:min-h-[800px]">
 
             {/* =======================
                 Stats Section
             ======================= */}
-            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
 
               {[
                 { title: "Current Balance", amount: "81,000", dark: true },
@@ -145,7 +145,7 @@ export default function TransactDashboard() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`rounded-2xl shadow-sm p-5 sm:p-6 min-h-[150px] flex flex-col justify-between ${
+                  className={`rounded-2xl shadow-sm p-4 sm:p-6 min-h-[120px] sm:min-h-[150px] flex flex-col justify-between ${
                     item.dark
                       ? "bg-[#0B3E5A] text-white"
                       : "bg-[#e0f7fa] text-[#0e4f62]"
@@ -158,9 +158,9 @@ export default function TransactDashboard() {
                     <ArrowUpRight size={18} className="opacity-50" />
                   </div>
 
-                  <div className="text-right">
-                    <span className="text-xs opacity-70 mr-1">LKR</span>
-                    <span className="text-2xl sm:text-3xl font-bold">
+                  <div className="mt-3 sm:mt-0 text-left sm:text-right">
+                    <span className="text-xs opacity-70 block sm:inline sm:mr-1">LKR</span>
+                    <span className="text-2xl sm:text-3xl font-bold block sm:inline">
                       {item.amount}
                     </span>
                   </div>
@@ -171,26 +171,26 @@ export default function TransactDashboard() {
             {/* =======================
                 Charts Section
             ======================= */}
-            <div className="mt-20 grid grid-cols-1 xl:grid-cols-3 gap-8 xl:gap-10">
+            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
 
               {/* Line Chart */}
-              <div className="xl:col-span-2 bg-white rounded-3xl p-6 sm:p-8 shadow-sm">
+              <div className="md:col-span-2 lg:col-span-2 bg-white rounded-3xl p-5 sm:p-8 shadow-sm">
                 <h2 className="text-lg font-bold text-[#0e4f62] mb-6">
                   Transaction Timeline
                 </h2>
 
-                <div className="relative w-full h-[250px] sm:h-[300px] lg:h-[350px]">
+                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[350px]">
                   <Line options={lineOptions} data={lineData} />
                 </div>
               </div>
 
               {/* Doughnut Chart */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col items-center">
+              <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-sm flex flex-col items-center">
                 <h2 className="w-full text-left text-lg font-bold text-[#0e4f62] mb-6">
                   Transaction Status
                 </h2>
 
-                <div className="relative w-36 h-36 sm:w-44 sm:h-44 lg:w-48 lg:h-48">
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48">
                   <Doughnut data={doughnutData} options={doughnutOptions} />
                   <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                     <span className="text-2xl sm:text-3xl font-bold text-[#0e4f62]">

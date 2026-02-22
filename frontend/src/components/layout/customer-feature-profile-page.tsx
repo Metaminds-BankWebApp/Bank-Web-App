@@ -60,8 +60,9 @@ export function CustomerFeatureProfilePage({ featureName, roleLabel }: CustomerF
 
   return (
     <div className="min-h-screen bg-[#f3f4f6] p-4 md:p-8">
-      <div className="mx-auto w-full max-w-7xl space-y-6">
-        {renderFeatureHeader()}
+       {renderFeatureHeader()}
+      <div className="flex justify-center mx-auto my-auto w-full max-h-[70%] max-w-7xl space-y-6">
+       
 
         <div className="grid gap-6 xl:grid-cols-[1fr_1.6fr]">
           <section className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">

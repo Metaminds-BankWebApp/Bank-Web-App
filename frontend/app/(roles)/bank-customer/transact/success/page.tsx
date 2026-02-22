@@ -54,10 +54,10 @@ export default function Page() {
       {/* 🔹 BLUR WRAPPER */}
       <div className={showOtp ? "blur-sm pointer-events-none" : ""}>
 
-        <div className="px-8 py-6 sm:px-6 lg:px-8">
+        <div className="px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
           <TransactHeader title="Transfer" subtitle="Bank transfer" />
 
-          <div className="flex justify-end mt-8 mb-8 max-w-6xl mx-auto">
+          <div className="flex justify-start sm:justify-end mt-6 mb-6 sm:mt-8 sm:mb-8 max-w-6xl mx-auto">
             <Link
               href="/bank-customer/transact/beneficiary"
               className="text-[#155E63] font-medium hover:underline"
@@ -66,7 +66,7 @@ export default function Page() {
             </Link>
           </div>
 
-          <Card className="rounded-xl shadow-sm p-8 max-w-6xl mx-auto w-full">
+          <Card className="rounded-xl shadow-sm p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full">
             <form className="space-y-6">
               <div className="space-y-1">
                 <Label>Account Number</Label>
@@ -99,7 +99,7 @@ export default function Page() {
                 <Button
                   type="button"
                   onClick={() => setShowOtp(true)}
-                  className="bg-[#155E63] hover:bg-[#134e52] text-white px-8 py-6 rounded-xl"
+                  className="w-full sm:w-auto bg-[#155E63] hover:bg-[#134e52] text-white px-8 py-5 rounded-xl"
                 >
                   Transfer Amount
                 </Button>
@@ -111,22 +111,22 @@ export default function Page() {
 
       {/* 🔹 OTP POPUP */}
       {showOtp && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
 
-          <Card className="bg-white rounded-3xl shadow-2xl border p-10 max-w-2xl w-full">
+          <Card className="bg-white rounded-3xl shadow-2xl border p-4 sm:p-8 max-w-2xl w-full">
 
-            <h2 className="text-2xl font-semibold text-center text-[#155E63] mb-8">
+            <h2 className="text-xl sm:text-2xl font-semibold text-center text-[#155E63] mb-6 sm:mb-8">
               OTP Authentication
             </h2>
 
-            <div className="bg-gray-50 border rounded-2xl p-10">
+            <div className="bg-gray-50 border rounded-2xl p-4 sm:p-8">
 
-              <p className="text-sm text-muted-foreground mb-8 text-center">
+              <p className="text-sm text-muted-foreground mb-6 sm:mb-8 text-center">
                 Enter the 6-digit OTP sent to your registered number
               </p>
 
               <div className="flex justify-center mb-6">
-                <div className="grid grid-cols-6 gap-6">
+                <div className="grid grid-cols-6 gap-2 sm:gap-4">
                   {otpValues.map((val, idx) => (
                     <Input
                       key={idx}
@@ -136,7 +136,7 @@ export default function Page() {
                         inputsRef.current[idx] = el
                       }}
                       maxLength={1}
-                      className="w-16 h-16 text-center text-lg rounded-xl"
+                      className="w-10 h-12 sm:w-14 sm:h-14 text-center text-base sm:text-lg rounded-xl"
                     />
                   ))}
                 </div>
@@ -146,9 +146,10 @@ export default function Page() {
                 00:{seconds.toString().padStart(2, "0")}
               </p>
 
-              <div className="flex justify-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <Button
                   variant="outline"
+                  className="w-full sm:w-auto"
                   onClick={() => setShowOtp(false)}
                 >
                   Cancel
@@ -156,7 +157,7 @@ export default function Page() {
 
                 <Button
                   onClick={handleVerify}
-                  className="bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-10"
+                  className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white rounded-xl px-10"
                 >
                   Verify
                 </Button>
